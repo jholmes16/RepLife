@@ -1,12 +1,11 @@
 // JavaScript Document
 function ajax_post(){
     // Create our XMLHttpRequest object
+	alert ("In java");
     var hr = new XMLHttpRequest();
     // Create some variables we need to send to our PHP file
     var url = "userInfo(test).php";
-    var fn = document.getElementById("first_name").value;
-    var ln = document.getElementById("last_name").value;
-	var age = document.getElementById("last_name").value;
+    var ln = "open";
     var vars = "lastname="+ln;
     hr.open("POST", url, true);
     // Set content type header information for sending url encoded variables in the request

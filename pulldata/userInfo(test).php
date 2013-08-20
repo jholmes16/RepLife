@@ -3,16 +3,16 @@
 	
 	$lasname = $_POST['lastname'];
 	
-	$query = "SELECT * FROM user WHERE first_name = '$lasname'";
+	$query = "SELECT * FROM  tv_listings";
 	$result = mysql_query($query) or die(mysql_error());
 	while($row = mysql_fetch_array($result)) {
-		if($row['first_name'] == ''){
-			echo "None". " - " . $row['first_name'];
-			echo "<br />";
+		if($row['show'] == ''){
+			echo "None". " - " . $row['show'];
+			echo "<br /><hr /><br />";
 		}
 		else{
-			echo $row['first_name'];
-			echo "<br />";
+			echo $row['show']. "-".$row['time'];
+			echo "<br /><hr /><br />";
 		}
 	}
 	

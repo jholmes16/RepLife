@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rep Life Mobile</title>
+<script language="javascript" type="application/javascript" src="insertdata.js"></script>
+<script language="javascript" type="application/javascript" src="pulldata.js"></script>
+<link href="jquery.mobile-1.0b3/jquery.mobile-1.0b3.min.css" rel="stylesheet" type="text/css">
+<script src="jquery.mobile-1.0b3/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script type="text/javascript"><!--Add back button-->
+	$(document).bind("mobileinit",function(){
+		$.mobile.page.prototype.options.addBackBtn = true;
+	});
+</script>
+<script type="text/javascript"><!--Initialize function on page load-->
+	$('#Rep_Life_TVListings').live('pageshow', function () { javascript:ajax_post();
+	});
+</script>
+<script src="jquery.mobile-1.0b3/jquery.mobile-1.0b3.min.js" type="text/javascript"></script>
+<script src="/phonegap.js" type="text/javascript"></script>
+<link href="styles/custom.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div data-role="page" id="Rep_Life_Info" style="background-image: url('images/red_sky_Background.jpg'); background-attachment: fixed; background-repeat: repeat; background-size: 100% 100%;" data-theme="a">
+  <div data-role="header">
+  <img src="images/Header.jpg" alt="Head"></div>
+  
+  <div data-role="content">	
+	<a href="#Rep_Life_TVListings" data-role="button" data-theme="a">TV Listings</a>
+	<a href="#Rep_Life_Events" data-role="button" data-theme="a">Events</a>
+    <a href="#Rep_Life_Features" data-role="button" data-theme="a">Features</a>
+	<a href="#Rep_Life_Contacts" data-role="button" data-theme="a">Contacts</a>
+  </div>
+  
+  <div data-role="footer">
+  <img src="images/footer.jpg" alt="footer"></div>
+  </div>
+</div>
+
+<!--New Page-->
+<div data-role="page" id="Rep_Life_TVListings" style="background-image: url('images/red_sky_Background.jpg'); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;" data-theme="a">
+  <div data-role="header">
+  <img src="images/Header.jpg" alt="Head"></div>
+  <div data-role="content" data-theme="a">
+  	<table border="0">
+        <tr>
+          <th>Show</th>
+          <th>Time</th>
+        </tr>
+  </div>
+  <div data-role="content" data-theme="a" id="status"></div>
+  <div data-role="footer">
+  <img src="images/footer.jpg" alt="footer"></div>
+  </div>
+</div>
+
+<!--New Page-->
+<div data-role="page" id="Rep_Life_Events" style="background-image: url('images/red_sky_Background.jpg'); background-attachment: fixed; background-repeat: repeat; background-size: 100% 100%;" data-theme="a">
+  <div data-role="header">
+  <img src="images/Header.jpg" alt="Head"></div>
+  <div data-role="content" data-theme="a">What's happening</div>
+  <div data-role="footer" style="padding-top:0px;">
+  <img src="images/footer.jpg" alt="footer"></div>
+  </div>
+</div>
+
+<!--New Page-->
+<div data-role="page" id="Rep_Life_Features" style="background-image: url('images/red_sky_Background.jpg'); background-attachment: fixed; background-repeat: repeat; background-size: 100% 100%;" data-theme="a">
+  <div data-role="header">
+  <img src="images/Header.jpg" alt="Head"></div>
+  <div data-role="content" data-theme="a">Events with mapping</div>
+  <div data-role="footer" style="padding-top:0px;">
+  <img src="images/footer.jpg" alt="footer"></div>
+  </div>
+</div>
+
+<!--New Page-->
+<div data-role="page" id="Rep_Life_Contacts" style="background-image: url('images/red_sky_Background.jpg'); background-attachment: fixed; background-repeat: repeat; background-size:cover;" data-theme="a">
+  <div data-role="header">
+  <img src="images/Header.jpg" alt="Head"></div>
+  <div data-role="content" align="center">
+      <p align="center">The Rep Life Station<br>
+      P.O. Box 731 <br>
+      Atlanta, GA 30313</p>
+      <div data-role="fieldcontain">
+        <select name="reason_contact" id="reason_contact" data-native-menu="false">
+          <option>Reason for Contact</option>
+          <option value="register">Register</option>
+          <option value="submit show">Submit Show</option>
+          <option value="tell about event">Tell About Event</option>
+          <option value="get featured">Get Featured</option>
+          <option value="donation">Donate</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <br />
+  	<input id="first_name" name="first_name" type="text" placeholder="Full Name/Company Name:" /> 
+	<br /><br />
+	<input id="last_name" name="last_name" type="email" placeholder="Email:" />
+	<br /><br />
+	<input id="user_website" name="user_website" type="url" placeholder="Website:" />
+	<br /><br />
+	<input id="tel_number" name="tel_number" type="tel" placeholder="Telephone:" />
+	<br /><br />
+	<textarea cols="40" rows="8" id="user_message" name="user_message" type="text" placeholder="Type Message:"></textarea>
+	<br /><br />
+	<input name="myBtn" type="submit" value="Submit Data" data-theme="a" onClick="javascript:ajax_post();">
+	<br /><br />
+
+	<div data-role="content" data-theme="a" id="status"></div>
+	<div data-role="footer">
+  	<img src="images/footer.jpg" alt="footer">
+    </div>
+  </div>
+</div>
+</body>
+</html>
